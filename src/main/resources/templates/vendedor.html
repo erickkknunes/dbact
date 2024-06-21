@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <title>Lista de Vendedores</title>
+</head>
+
+<body>
+    <h2>Lista de Vendedores</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Ações</th>
+        </tr>
+        <tr th:each="vendedor : ${listVendedores}">
+            <td th:text="${vendedor.idvendedor}">ID</td>
+            <td th:text="${vendedor.nome}">Nome</td>
+            <td th:text="${vendedor.cpf}">CPF</td>
+            <td>
+                <a th:href="@{/vendedores/showFormForUpdateVendedor/{id}(id=${vendedor.idvendedor})}">Editar</a>
+                <a th:href="@{/vendedores/deleteVendedor/{id}(id=${vendedor.idvendedor})}">Excluir</a>
+            </td>
+        </tr>
+    </table>
+    <a th:href="@{/vendedores/showNewVendedorForm}">Adicionar Novo Vendedor</a>
+</body>
+
+</html>

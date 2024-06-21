@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <title>Lista de Pagamentos</title>
+</head>
+
+<body>
+    <h2>Lista de Pagamentos</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>ID da Venda</th>
+            <th>Tipo</th>
+            <th>Valor</th>
+            <th>Ações</th>
+        </tr>
+        <tr th:each="pagamento : ${listPagamentos}">
+            <td th:text="${pagamento.idpagamento}">ID</td>
+            <td th:text="${pagamento.venda.idvenda}">ID da Venda</td>
+            <td th:text="${pagamento.tipo}">Tipo</td>
+            <td th:text="${pagamento.valor}">Valor</td>
+            <td>
+                <a th:href="@{/pagamentos/showFormForUpdatePagamento/{id}(id=${pagamento.idpagamento})}">Editar</a>
+                <a th:href="@{/pagamentos/deletePagamento/{id}(id=${pagamento.idpagamento})}">Excluir</a>
+            </td>
+        </tr>
+    </table>
+    <a th:href="@{/pagamentos/showNewPagamentoForm}">Adicionar Novo Pagamento</a>
+</body>
+
+</html>

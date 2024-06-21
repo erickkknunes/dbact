@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <title>Adicionar Novo Cliente</title>
+</head>
+
+<body>
+    <h2>Adicionar Novo Cliente</h2>
+    <form th:action="@{/saveCliente}" th:object="${cliente}" method="post">
+        <label for="descricao">Descrição:</label>
+        <input type="text" id="descricao" name="descricao" th:field="*{descricao}">
+        <label for="cpfCnpj">CPF/CNPJ:</label>
+        <input type="text" id="cpfCnpj" name="cpfCnpj" th:field="*{cpfCnpj}">
+        <button type="submit">Salvar</button>
+    </form>
+    <a href="/clientes">Voltar</a>
+</body>
+
+</html>

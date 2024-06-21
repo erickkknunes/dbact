@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <title>Página Inicial</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="section">
+            <h2>Clientes</h2>
+            <a href="/clientes">Lista de Clientes</a>
+            <a href="/showNewClienteForm">Adicionar Novo Cliente</a>
+        </div>
+        <div class="section">
+            <h2>Compras</h2>
+            <a href="/compras">Lista de Compras</a>
+            <a href="/compras/showNewCompraForm">Adicionar Nova Compra</a>
+        </div>
+        <div class="section">
+            <h2>Fornecedores</h2>
+            <a href="/fornecedores">Lista de Fornecedores</a>
+            <a href="/fornecedores/showNewFornecedorForm">Adicionar Novo Fornecedor</a>
+        </div>
+        <div class="section">
+            <h2>Lojas</h2>
+            <a href="/lojas">Lista de Lojas</a>
+            <a href="/lojas/showNewLojaForm">Adicionar Nova Loja</a>
+        </div>
+        <div class="section">
+            <h2>Produtos</h2>
+            <a href="/produtos">Lista de Produtos</a>
+            <a href="/showNewProdutoForm">Adicionar Novo Produto</a>
+        </div>
+        <div class="section">
+            <h2>Tempo</h2>
+            <a href="/tempos">Lista de Tempos</a>
+            <a href="/tempos/showNewTempoForm">Adicionar Novo Tempo</a>
+        </div>
+        <div class="section">
+            <h2>Pagamentos</h2>
+            <a href="/pagamentos">Tipos de Pagamentos</a>
+            <a href="/pagamentos/showNewPagamentoForm">Adicionar Novo Tipo de Pagamento</a>
+        </div>
+        <div class="section">
+            <h2>Vendedores</h2>
+            <a href="/vendedores">Lista de Vendedores</a>
+            <a href="/vendedores/showNewVendedorForm">Adicionar Novo Vendedor</a>
+        </div>
+        <div class="section">
+            <h2>Vendas</h2>
+            <a href="/vendas">Vendas</a>
+            <a href="/vendas/showNewVendaForm">Adicionar Nova Venda</a>
+        </div>
+        <div class="section">
+            <h2>Pedidos</h2>
+            <a href="/pedidos">Pedidos</a>
+            <a href="/pedidos/showNewPedidoForm">Adicionar Nova Venda</a>
+        </div>
+        <div class="section">
+            <h2>Itens em pedidos</h2>
+            <a href="/itempedidos">Itens em Pedidos</a>
+            <a href="/itempedidos/showNewItemPedidoForm">Adicionar Novo Item em Pedido</a>
+        </div>
+    </div>
+</body>
+
+</html>

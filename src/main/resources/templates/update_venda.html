@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <title>Atualizar Venda</title>
+</head>
+
+<body>
+    <h2>Atualizar Venda</h2>
+    <form th:action="@{/vendas/saveVenda}" th:object="${venda}" method="post">
+        <input type="hidden" th:field="*{idvenda}">
+        <label for="idTempo">ID do Tempo:</label>
+        <input type="number" id="idTempo" name="tempo.idtempo" th:field="*{tempo.idtempo}">
+        <label for="idLoja">ID da Loja:</label>
+        <input type="number" id="idLoja" name="loja.idloja" th:field="*{loja.idloja}">
+        <label for="idCliente">ID do Cliente:</label>
+        <input type="number" id="idCliente" name="cliente.idcliente" th:field="*{cliente.idcliente}">
+        <label for="idProduto">ID do Produto:</label>
+        <input type="number" id="idProduto" name="produto.idproduto" th:field="*{produto.idproduto}">
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" id="quantidade" name="quantidade" th:field="*{quantidade}">
+        <label for="valor">Valor:</label>
+        <input type="number" id="valor" name="valor" th:field="*{valor}">
+        <button type="submit">Atualizar</button>
+    </form>
+    <a th:href="@{/vendas}">Voltar</a>
+</body>
+
+</html>

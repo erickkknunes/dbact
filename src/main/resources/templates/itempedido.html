@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <title>Lista de Itens do Pedido</title>
+</head>
+
+<body>
+    <h2>Lista de Itens do Pedido</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>ID do Pedido</th>
+            <th>ID do Produto</th>
+            <th>Quantidade</th>
+            <th>Valor Unitário</th>
+            <th>Ações</th>
+        </tr>
+        <tr th:each="itemPedido : ${listItemPedidos}">
+            <td th:text="${itemPedido.iditempedido}">ID</td>
+            <td th:text="${itemPedido.pedido.idpedido}">ID do Pedido</td>
+            <td th:text="${itemPedido.produto.idproduto}">ID do Produto</td>
+            <td th:text="${itemPedido.quantidade}">Quantidade</td>
+            <td th:text="${itemPedido.valorUnit}">Valor Unitário</td>
+            <td>
+                <a th:href="@{/itempedidos/showFormForUpdateItemPedido/{id}(id=${itemPedido.iditempedido})}">Editar</a>
+                <a th:href="@{/itempedidos/deleteItemPedido/{id}(id=${itemPedido.iditempedido})}">Excluir</a>
+            </td>
+        </tr>
+    </table>
+    <a th:href="@{/itempedidos/showNewItemPedidoForm}">Adicionar Novo Item do Pedido</a>
+</body>
+
+</html>

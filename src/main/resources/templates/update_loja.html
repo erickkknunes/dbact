@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <title>Atualizar Loja</title>
+</head>
+
+<body>
+    <h2>Atualizar Loja</h2>
+    <form th:action="@{/lojas/saveLoja}" th:object="${loja}" method="post">
+        <input type="hidden" th:field="*{idloja}">
+        <label for="descricao">Descrição:</label>
+        <input type="text" id="descricao" name="descricao" th:field="*{descricao}">
+        <label for="codigo">Código:</label>
+        <input type="number" id="codigo" name="codigo" th:field="*{codigo}">
+        <button type="submit">Salvar</button>
+    </form>
+    <a href="/lojas">Voltar</a>
+</body>
+
+</html>
