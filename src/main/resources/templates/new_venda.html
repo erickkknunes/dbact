@@ -9,18 +9,36 @@
 <body>
     <h2>Adicionar Nova Venda</h2>
     <form th:action="@{/vendas/saveVenda}" th:object="${venda}" method="post">
-        <label for="idTempo">ID do Tempo:</label>
-        <input type="number" id="idTempo" name="tempo.idtempo" th:field="*{tempo.idtempo}">
-        <label for="idLoja">ID da Loja:</label>
-        <input type="number" id="idLoja" name="loja.idloja" th:field="*{loja.idloja}">
-        <label for="idCliente">ID do Cliente:</label>
-        <input type="number" id="idCliente" name="cliente.idcliente" th:field="*{cliente.idcliente}">
-        <label for="idProduto">ID do Produto:</label>
-        <input type="number" id="idProduto" name="produto.idproduto" th:field="*{produto.idproduto}">
+        <label for="selectTempo">Selecione o Tempo:</label>
+        <select id="selectTempo" name="tempo.idtempo" th:field="*{tempo.idtempo}">
+            <option th:each="tempo : ${listaTempos}" th:value="${tempo.idtempo}" th:text="${tempo.datacompleta}">
+            </option>
+        </select><br>
+
+        <label for="selectLoja">Selecione a Loja:</label>
+        <select id="selectLoja" name="loja.idloja" th:field="*{loja.idloja}">
+            <option th:each="loja : ${listaLojas}" th:value="${loja.idloja}" th:text="${loja.descricao}">
+            </option>
+        </select><br>
+
+        <label for="selectCliente">Selecione o Cliente:</label>
+        <select id="selectCliente" name="cliente.idcliente" th:field="*{cliente.idcliente}">
+            <option th:each="cliente : ${listaClientes}" th:value="${cliente.idcliente}" th:text="${cliente.descricao}">
+            </option>
+        </select><br>
+
+        <label for="selectProduto">Selecione o Produto:</label>
+        <select id="selectProduto" name="produto.idproduto" th:field="*{produto.idproduto}">
+            <option th:each="produto : ${listaProdutos}" th:value="${produto.idproduto}" th:text="${produto.descricao}">
+            </option>
+        </select><br>
+
         <label for="quantidade">Quantidade:</label>
-        <input type="number" id="quantidade" name="quantidade" th:field="*{quantidade}">
+        <input type="number" id="quantidade" name="quantidade" th:field="*{quantidade}"><br>
+
         <label for="valor">Valor:</label>
-        <input type="number" id="valor" name="valor" th:field="*{valor}">
+        <input type="number" id="valor" name="valor" th:field="*{valor}"><br>
+
         <button type="submit">Salvar</button>
     </form>
     <a th:href="@{/vendas}">Voltar</a>

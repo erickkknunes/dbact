@@ -9,12 +9,17 @@
 <body>
     <h2>Adicionar Novo Pagamento</h2>
     <form th:action="@{/pagamentos/savePagamento}" th:object="${pagamento}" method="post">
-        <label for="idVenda">ID da Venda:</label>
-        <input type="number" id="idVenda" name="venda.idvenda" th:field="*{venda.idvenda}">
+        <label for="selectVenda">Selecione a Venda:</label>
+        <select id="selectVenda" name="venda.idvenda" th:field="*{venda.idvenda}">
+            <option th:each="venda : ${listaVendas}" th:value="${venda.idvenda}" th:text="${venda.idvenda}"></option>
+        </select><br>
+
         <label for="tipo">Tipo:</label>
-        <input type="text" id="tipo" name="tipo" th:field="*{tipo}">
+        <input type="text" id="tipo" name="tipo" th:field="*{tipo}"><br>
+
         <label for="valor">Valor:</label>
-        <input type="number" step="0.01" id="valor" name="valor" th:field="*{valor}">
+        <input type="number" step="0.01" id="valor" name="valor" th:field="*{valor}"><br>
+
         <button type="submit">Salvar</button>
     </form>
     <a th:href="@{/pagamentos}">Voltar</a>
