@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <title>Loja Management</title>
+</head>
+
+<body>
+    <h2>Lista de Lojas</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Descrição</th>
+            <th>Código</th>
+            <th>Ações</th>
+        </tr>
+        <tr th:each="loja : ${listLojas}">
+            <td th:text="${loja.idloja}">ID</td>
+            <td th:text="${loja.descricao}">Descrição</td>
+            <td th:text="${loja.codigo}">Código</td>
+            <td>
+                <a th:href="@{/showFormForUpdate/{id}(id=${loja.idloja})}">Editar</a>
+                <a th:href="@{/deleteLoja/{id}(id=${loja.idloja})}">Excluir</a>
+            </td>
+        </tr>
+    </table>
+    <a href="/lojas/showNewLojaForm">Adicionar Nova Loja</a>
+</body>
+
+</html>

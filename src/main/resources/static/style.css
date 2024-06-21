@@ -1,0 +1,120 @@
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.section {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    width: 300px;
+    text-align: center;
+}
+
+.section h2 {
+    color: #6a1b9a;
+}
+
+a {
+    display: block;
+    margin: 10px 0;
+    color: #6a1b9a;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #4a148c;
+}
+
+/* Estilos para tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #6a1b9a;
+    color: #ffffff;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Estilos para formulários */
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #6a1b9a;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    background-color: #6a1b9a;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #4a148c;
+}
+
+/* Estilos específicos para links dentro das tabelas */
+td a {
+    margin-right: 5px;
+    color: #6a1b9a;
+    text-decoration: none;
+}
+
+td a:hover {
+    color: #4a148c;
+}
+
+/* Estilos específicos para os botões de voltar */
+a[href^="/"] {
+    background-color: #4a148c;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+a[href^="/"]:hover {
+    background-color: #6a1b9a;
+}

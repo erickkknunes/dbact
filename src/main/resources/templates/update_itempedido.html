@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <title>Atualizar Item do Pedido</title>
+</head>
+
+<body>
+    <h2>Atualizar Item do Pedido</h2>
+    <form th:action="@{/itempedidos/saveItemPedido}" th:object="${itemPedido}" method="post">
+        <input type="hidden" th:field="*{iditempedido}">
+        <label for="idPedido">ID do Pedido:</label>
+        <input type="number" id="idPedido" name="pedido.idpedido" th:field="*{pedido.idpedido}">
+        <label for="idProduto">ID do Produto:</label>
+        <input type="number" id="idProduto" name="produto.idproduto" th:field="*{produto.idproduto}">
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" id="quantidade" name="quantidade" th:field="*{quantidade}">
+        <label for="valorUnit">Valor Unitário:</label>
+        <input type="number" id="valorUnit" name="valorUnit" th:field="*{valorUnit}">
+        <button type="submit">Atualizar</button>
+    </form>
+    <a th:href="@{/itempedidos}">Voltar</a>
+</body>
+
+</html>

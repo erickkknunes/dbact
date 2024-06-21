@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <title>Lista de Tempos</title>
+</head>
+
+<body>
+    <h2>Lista de Tempos</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Data Completa</th>
+            <th>Mês</th>
+            <th>Ano</th>
+            <th>Ações</th>
+        </tr>
+        <tr th:each="tempo : ${listTempos}">
+            <td th:text="${tempo.idtempo}">ID</td>
+            <td th:text="${tempo.datacompleta}">Data Completa</td>
+            <td th:text="${tempo.mes}">Mês</td>
+            <td th:text="${tempo.ano}">Ano</td>
+            <td>
+                <a th:href="@{/tempos/showFormForUpdateTempo/{id}(id=${tempo.idtempo})}">Editar</a>
+                <a th:href="@{/tempos/deleteTempo/{id}(id=${tempo.idtempo})}">Excluir</a>
+            </td>
+        </tr>
+    </table>
+    <a th:href="@{/tempos/showNewTempoForm}">Adicionar Novo Tempo</a>
+</body>
+
+</html>

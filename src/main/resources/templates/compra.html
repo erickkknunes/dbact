@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <title>Lista de Compras</title>
+</head>
+
+<body>
+    <h2>Lista de Compras</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>ID do Tempo</th>
+            <th>ID da Loja</th>
+            <th>ID do Fornecedor</th>
+            <th>ID do Produto</th>
+            <th>Quantidade</th>
+            <th>Valor</th>
+            <th>Ações</th>
+        </tr>
+        <tr th:each="compra : ${listCompras}">
+            <td th:text="${compra.idcompra}">ID</td>
+            <td th:text="${compra.tempo.idtempo}">ID do Tempo</td>
+            <td th:text="${compra.loja.idloja}">ID da Loja</td>
+            <td th:text="${compra.fornecedor.idfornecedor}">ID do Fornecedor</td>
+            <td th:text="${compra.produto.idproduto}">ID do Produto</td>
+            <td th:text="${compra.quantidade}">Quantidade</td>
+            <td th:text="${compra.valor}">Valor</td>
+            <td>
+                <a th:href="@{/compras/showFormForUpdateCompra/{id}(id=${compra.idcompra})}">Editar</a>
+                <a th:href="@{/compras/deleteCompra/{id}(id=${compra.idcompra})}">Excluir</a>
+            </td>
+        </tr>
+    </table>
+    <a th:href="@{/compras/showNewCompraForm}">Adicionar Nova Compra</a>
+</body>
+
+</html>

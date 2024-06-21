@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <title>Lista de Vendas</title>
+</head>
+
+<body>
+    <h2>Lista de Vendas</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>ID do Tempo</th>
+            <th>ID da Loja</th>
+            <th>ID do Cliente</th>
+            <th>ID do Produto</th>
+            <th>Quantidade</th>
+            <th>Valor</th>
+            <th>Ações</th>
+        </tr>
+        <tr th:each="venda : ${listVendas}">
+            <td th:text="${venda.idvenda}">ID</td>
+            <td th:text="${venda.tempo.idtempo}">ID do Tempo</td>
+            <td th:text="${venda.loja.idloja}">ID da Loja</td>
+            <td th:text="${venda.cliente.idcliente}">ID do Cliente</td>
+            <td th:text="${venda.produto.idproduto}">ID do Produto</td>
+            <td th:text="${venda.quantidade}">Quantidade</td>
+            <td th:text="${venda.valor}">Valor</td>
+            <td>
+                <a th:href="@{/vendas/showFormForUpdateVenda/{id}(id=${venda.idvenda})}">Editar</a>
+                <a th:href="@{/vendas/deleteVenda/{id}(id=${venda.idvenda})}">Excluir</a>
+            </td>
+        </tr>
+    </table>
+    <a th:href="@{/vendas/showNewVendaForm}">Adicionar Nova Venda</a>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <title>Adicionar Novo Tempo</title>
+</head>
+
+<body>
+    <h2>Adicionar Novo Tempo</h2>
+    <form th:action="@{/tempos/saveTempo}" th:object="${tempo}" method="post">
+        <label for="datacompleta">Data Completa:</label>
+        <input type="date" id="datacompleta" name="datacompleta" th:field="*{datacompleta}">
+        <label for="mes">Mês:</label>
+        <input type="number" id="mes" name="mes" th:field="*{mes}">
+        <label for="ano">Ano:</label>
+        <input type="number" id="ano" name="ano" th:field="*{ano}">
+        <button type="submit">Salvar</button>
+    </form>
+    <a th:href="@{/tempos}">Voltar</a>
+</body>
+
+</html>

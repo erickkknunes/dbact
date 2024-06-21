@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <title>Atualizar Pagamento</title>
+</head>
+
+<body>
+    <h2>Atualizar Pagamento</h2>
+    <form th:action="@{/pagamentos/savePagamento}" th:object="${pagamento}" method="post">
+        <input type="hidden" th:field="*{idpagamento}">
+        <label for="idVenda">ID da Venda:</label>
+        <input type="number" id="idVenda" name="venda.idvenda" th:field="*{venda.idvenda}">
+        <label for="tipo">Tipo:</label>
+        <input type="text" id="tipo" name="tipo" th:field="*{tipo}">
+        <label for="valor">Valor:</label>
+        <input type="number" step="0.01" id="valor" name="valor" th:field="*{valor}">
+        <button type="submit">Atualizar</button>
+    </form>
+    <a th:href="@{/pagamentos}">Voltar</a>
+</body>
+
+</html>

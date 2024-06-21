@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <title>Adicionar Novo Produto</title>
+</head>
+
+<body>
+    <h2>Adicionar Novo Produto</h2>
+    <form th:action="@{/saveProduto}" th:object="${produto}" method="post">
+        <label for="descricao">Descrição:</label>
+        <input type="text" id="descricao" name="descricao" th:field="*{descricao}">
+        <button type="submit">Salvar</button>
+    </form>
+    <a href="/produtos">Voltar</a>
+</body>
+
+</html>
