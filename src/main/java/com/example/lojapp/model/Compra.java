@@ -1,6 +1,8 @@
 package com.example.lojapp.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.math.BigDecimal;
 
@@ -12,18 +14,22 @@ public class Compra {
 
     @ManyToOne
     @JoinColumn(name = "idtempo")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Tempo tempo;
 
     @ManyToOne
     @JoinColumn(name = "idloja")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Loja loja;
 
     @ManyToOne
     @JoinColumn(name = "idfornecedor")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Fornecedor fornecedor;
 
     @ManyToOne
     @JoinColumn(name = "idproduto")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Produto produto;
 
     private int quantidade;

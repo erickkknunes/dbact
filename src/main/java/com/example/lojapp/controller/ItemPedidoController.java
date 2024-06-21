@@ -1,29 +1,46 @@
 package com.example.lojapp.controller;
 
+import com.example.lojapp.model.ItemPedido;
+import com.example.lojapp.model.Pedido;
+import com.example.lojapp.model.Produto;
+import com.example.lojapp.service.ItemPedidoService;
+import com.example.lojapp.service.PedidoService;
+import com.example.lojapp.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import com.example.lojapp.model.ItemPedido;
-import com.example.lojapp.service.ItemPedidoService;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/itempedidos")
 public class ItemPedidoController {
+
     @Autowired
     private ItemPedidoService itemPedidoService;
+
+    @Autowired
+    private PedidoService pedidoService;
+
+    @Autowired
+    private ProdutoService produtoService;
 
     @GetMapping("")
     public String viewItemPedidosPage(Model model) {
         model.addAttribute("listItemPedidos", itemPedidoService.getAllItemPedidos());
-        return "itempedido"; // itempedido.html na pasta templates
+        return "itempedido";
     }
 
     @GetMapping("/showNewItemPedidoForm")
     public String showNewItemPedidoForm(Model model) {
         ItemPedido itemPedido = new ItemPedido();
+        List<Pedido> pedidos = pedidoService.getAllPedidos();
+        List<Produto> produtos = produtoService.getAllProdutos();
         model.addAttribute("itemPedido", itemPedido);
-        return "new_itempedido"; // new_itempedido.html na pasta templates
+        model.addAttribute("pedidos", pedidos);
+        model.addAttribute("produtos", produtos);
+        return "new_itempedido";
     }
 
     @PostMapping("/saveItemPedido")
@@ -35,8 +52,12 @@ public class ItemPedidoController {
     @GetMapping("/showFormForUpdateItemPedido/{id}")
     public String showFormForUpdateItemPedido(@PathVariable(value = "id") int id, Model model) {
         ItemPedido itemPedido = itemPedidoService.getItemPedidoById(id).orElse(null);
+        List<Pedido> pedidos = pedidoService.getAllPedidos();
+        List<Produto> produtos = produtoService.getAllProdutos();
         model.addAttribute("itemPedido", itemPedido);
-        return "update_itempedido"; // update_itempedido.html na pasta templates
+        model.addAttribute("pedidos", pedidos);
+        model.addAttribute("produtos", produtos);
+        return "update_itempedido";
     }
 
     @GetMapping("/deleteItemPedido/{id}")

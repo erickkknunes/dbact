@@ -35,7 +35,7 @@ public class ProdutoController {
     public String showFormForUpdate(@PathVariable(value = "id") int id, Model model) {
         Produto produto = produtoService.getProdutoById(id).orElse(null);
         model.addAttribute("produto", produto);
-        return "produto/update_produto";
+        return "update_produto";
     }
 
     @GetMapping("/deleteProduto/{id}")

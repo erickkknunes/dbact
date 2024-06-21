@@ -1,24 +1,20 @@
 package com.example.lojapp.service;
 
+import com.example.lojapp.model.Pedido;
+import com.example.lojapp.repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.example.lojapp.repository.PedidoRepository;
-import com.example.lojapp.model.Pedido;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class PedidoService {
+
     @Autowired
     private PedidoRepository pedidoRepository;
 
     public List<Pedido> getAllPedidos() {
         return pedidoRepository.findAll();
-    }
-
-    public Optional<Pedido> getPedidoById(int id) {
-        return pedidoRepository.findById(id);
     }
 
     public Pedido saveOrUpdatePedido(Pedido pedido) {
@@ -27,5 +23,9 @@ public class PedidoService {
 
     public void deletePedido(int id) {
         pedidoRepository.deleteById(id);
+    }
+
+    public Optional<Pedido> getPedidoById(int id) {
+        return pedidoRepository.findById(id);
     }
 }

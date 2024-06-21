@@ -1,6 +1,8 @@
 package com.example.lojapp.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.math.BigDecimal;
 
@@ -12,6 +14,7 @@ public class Pagamento {
 
     @ManyToOne
     @JoinColumn(name = "idvenda")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Venda venda;
 
     private String tipo;

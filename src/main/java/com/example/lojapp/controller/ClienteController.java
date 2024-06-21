@@ -36,7 +36,7 @@ public class ClienteController {
     public String showFormForUpdateCliente(@PathVariable(value = "id") int id, Model model) {
         Cliente cliente = clienteService.getClienteById(id).orElse(null);
         model.addAttribute("cliente", cliente);
-        return "cliente/update_cliente";
+        return "update_cliente";
     }
 
     @GetMapping("/deleteCliente/{id}")

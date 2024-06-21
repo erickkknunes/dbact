@@ -36,7 +36,7 @@ public class FornecedorController {
     public String showFormForUpdate(@PathVariable(value = "id") int id, Model model) {
         Fornecedor fornecedor = fornecedorService.getFornecedorById(id).orElse(null);
         model.addAttribute("fornecedor", fornecedor);
-        return "fornecedor/update_fornecedor";
+        return "update_fornecedor";
     }
 
     @GetMapping("/deleteFornecedor/{id}")

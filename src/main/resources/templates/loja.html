@@ -20,8 +20,8 @@
             <td th:text="${loja.descricao}">Descrição</td>
             <td th:text="${loja.codigo}">Código</td>
             <td>
-                <a th:href="@{/showFormForUpdate/{id}(id=${loja.idloja})}">Editar</a>
-                <a th:href="@{/deleteLoja/{id}(id=${loja.idloja})}">Excluir</a>
+                <a th:href="@{/lojas/showFormForUpdate/{id}(id=${loja.idloja})}">Editar</a>
+                <a th:href="@{/lojas/deleteLoja/{id}(id=${loja.idloja})}">Excluir</a>
             </td>
         </tr>
     </table>
